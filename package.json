@@ -1,0 +1,25 @@
+{
+  "author": "PhFeustel",
+  "name": "cdmf",
+  "main": "src/index.html",
+  "description": "Captain Domo Management Frontend",
+  "dependencies": {
+    "angular": "~1.5.8",
+    "angular-ui-router": "~0.3.1",
+    "bootstrap-less": "^3.3.8",
+    "lodash": "~4.14.2",
+    "ng-file-upload": "^12.0.4"
+  },
+  "devDependencies": {
+    "del": "^2.2.1",
+    "gulp": "~3.9.1",
+    "gulp-batch": "^1.0.5",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-header": "^1.8.7",
+    "gulp-inject": "^4.1.0",
+    "gulp-less": "^3.1.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-usemin": "^0.3.23",
+    "gulp-watch": "^4.3.9"
+  }
+}

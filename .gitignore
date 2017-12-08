@@ -1,0 +1,14 @@
+# Node
+node_modules
+
+#css because it is generated from less files
+src/css
+
+#target becuse it is build via gulp build
+target
+
+# Installation specific details like credentials, urls, welcome messages
+captainDomoServiceConfig/*.php
+
+# Log directory
+logs/

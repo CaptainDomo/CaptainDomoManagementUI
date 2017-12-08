@@ -1,0 +1,38 @@
+<div class="container">
+    <h3>Aktuelle Liste der Abonnenten der Mailingliste</h3>
+    <p class="alert-success" data-ng-if="vm.subscriptionDeleteResult.subscriptionDeleteResultCode === 'SUCCESSFUL'">
+        <span class="glyphicon glyphicon-ok-sign"></span>
+        Abmeldung des Abonnenten war erfolgreich.
+    </p>
+    <p class="alert-danger"
+       data-ng-if="vm.subscriptionDeleteResult.subscriptionDeleteResultCode === 'TECHNICAL_ERROR' ||
+       vm.subscriptionDeleteResult.subscriptionDeleteResultCode === 'SUBSCRIPTION_NOT_FOUND'">
+        <span class="glyphicon glyphicon-exclamation-sign"></span>
+        Bei der Abmeldung des Abonnenten ist ein technischer Fehler aufgetreten. Bitte melde Dich beim Administrator.
+    </p>
+    <label for="filterInput">Filtern nach</label>
+    <input id="filterInput" type="text"
+           data-ng-change="vm.filterSubscriptionlist()"
+           data-ng-model="vm.filterText"
+           data-ng-model-options="{ debounce: 250 }">
+    <table class="table table-striped table-condensed">
+        <tr>
+            <th>Externe Mitgliedsnummer</th>
+            <th>Vorname</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+        <tr data-ng-repeat="subscription in vm.filteredSubscriptions track by subscription.id">
+            <td data-ng-bind="subscription.number"></td>
+            <td data-ng-bind="subscription.firstname"></td>
+            <td data-ng-bind="subscription.lastname"></td>
+            <td data-ng-bind="subscription.email"></td>
+            <td>
+                <button type="button" class="btn btn-default" data-ng-click="vm.unsubscribe(subscription)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>

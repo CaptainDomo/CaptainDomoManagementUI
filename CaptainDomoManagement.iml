@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/node_modules" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/composer" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/container-interop/container-interop" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/doctrine/instantiator" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/myclabs/php-enum" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/nikic/fast-route" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/pear/console_getopt" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/pear/mail" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/pear/net_smtp" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/pear/net_socket" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/pear/pear-core-minimal" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/pear/pear_exception" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpdocumentor/reflection-common" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpdocumentor/reflection-docblock" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpdocumentor/type-resolver" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpspec/prophecy" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpunit/php-code-coverage" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpunit/php-file-iterator" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpunit/php-text-template" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpunit/php-timer" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpunit/php-token-stream" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpunit/phpunit" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpunit/phpunit-mock-objects" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/pimple/pimple" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/psr/container" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/psr/http-message" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/sebastian/comparator" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/sebastian/diff" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/sebastian/environment" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/sebastian/exporter" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/sebastian/global-state" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/sebastian/recursion-context" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/sebastian/version" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/slim/slim" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/symfony/yaml" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/tuupola/slim-basic-auth" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/webmozart/assert" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/composer" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/container-interop/container-interop" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/doctrine/instantiator" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/myclabs/php-enum" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/nikic/fast-route" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/pear/console_getopt" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/pear/mail" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/pear/net_smtp" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/pear/net_socket" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/pear/pear-core-minimal" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/pear/pear_exception" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpdocumentor/reflection-common" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpdocumentor/reflection-docblock" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpdocumentor/type-resolver" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpspec/prophecy" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpunit/php-code-coverage" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpunit/php-file-iterator" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpunit/php-text-template" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpunit/php-timer" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpunit/php-token-stream" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpunit/phpunit" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/phpunit/phpunit-mock-objects" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/pimple/pimple" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/psr/container" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/psr/http-message" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/sebastian/comparator" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/sebastian/diff" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/sebastian/environment" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/sebastian/exporter" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/sebastian/global-state" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/sebastian/recursion-context" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/sebastian/version" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/slim/slim" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/symfony/yaml" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/tuupola/slim-basic-auth" />
+          <root url="file://$MODULE_DIR$/../CaptainDomoService/vendor/webmozart/assert" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="angularjs-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="lodash-DefinitelyTyped" level="application" />
+  </component>
+</module>
