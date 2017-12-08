@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de" data-ng-app="cdmf">
+<head>
+    <meta charset="UTF-8">
+    <title>Captain Domo Management Frontend</title>
+    <!-- build:css css/main.css -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+
+    <!-- build:js js/vendor.js -->
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../node_modules/lodash/lodash.js"></script>
+    <script src="../node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js1 js/optimized.js -->
+    <!-- inject:js -->
+    <script src="app/app.js"></script>
+    <script src="app/hal.js"></script>
+    <script src="app/login/authentication.js"></script>
+    <script src="app/login/login.ui.js"></script>
+    <script src="app/member/member.js"></script>
+    <script src="app/member/member.ui.js"></script>
+    <script src="app/member/precheckmember.js"></script>
+    <script src="app/navigation/navigation.ui.js"></script>
+    <script src="app/subscription/subscription.js"></script>
+    <script src="app/subscription/subscription.ui.js"></script>
+    <script src="app/suspect/suspect.js"></script>
+    <script src="app/suspect/suspect.ui.js"></script>
+    <script src="app/member/membercsvlistimporter/membercsvlistimporter.ui.js"></script>
+    <script src="app/member/memberlist/memberlist.ui.js"></script>
+    <script src="app/subscription/subscriptionlist/subscriptionlist.ui.js"></script>
+    <script src="app/suspect/suspectlist/suspectlist.ui.js"></script>
+    <!-- endinject -->
+    <!-- endbuild -->
+
+</head>
+<body>
+<ui-view></ui-view>
+</body>
+</html>

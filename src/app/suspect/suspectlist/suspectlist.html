@@ -1,0 +1,150 @@
+<div class="container">
+    <p class="alert-success"
+       data-ng-show="vm.resolveResult.resolveWithAdditionalSubscriptionResultCode === 'SUBSCRIPTION_ADDED' ||
+            vm.resolveResult.suspectResolvingResultCode === 'SUSPECT_REJECTED_SUCCESSFULLY' ||
+            vm.resolveResult.suspectResolvingResultCode === 'SUBSCRIPTION_ADDED'">
+        <span class="glyphicon glyphicon-ok-sign"></span>
+        Suspect erfolgreich aufgelöst!
+    </p>
+    <table class="table table-condensed table-bordered">
+        <tr>
+            <th class="col-md-1">Mitglieds-nummer</th>
+            <th class="col-md-1">Vorname</th>
+            <th class="col-md-1">Nachname</th>
+            <th class="col-md-2">Email</th>
+            <th class="col-md-3">Hinweise f&uuml;r Pr&uuml;fung</th>
+            <th class="col-md-4">Aufl&ouml;sung</th>
+        </tr>
+        <tbody data-ng-if="vm.suspects.length < 1">
+        <tr>
+            <td colspan="6" class="info">
+                <span aria-hidden="true" class="glyphicon glyphicon-info-sign"></span>Keine Einträge vorhanden.
+            </td>
+        </tr>
+        </tbody>
+        <tbody data-ng-repeat="suspect in vm.suspects track by suspect.id">
+        <tr class="{{ vm.isSuspectInEditMode(suspect) ? 'info' : ''}}">
+            <td data-ng-bind="suspect.subscriptionRequest.number" class="text-right"></td>
+            <td data-ng-bind="suspect.subscriptionRequest.firstname"></td>
+            <td data-ng-bind="suspect.subscriptionRequest.lastname"></td>
+            <td data-ng-bind="suspect.subscriptionRequest.email"></td>
+            <td data-ng-show="suspect.suspectReason == 'NO_MATCHING_MEMBER'">
+                Keine &Uuml;bereinstimmung mit Mitgliederliste
+            </td>
+            <td data-ng-show="suspect.suspectReason == 'SUBSCRIPTION_WITH_OTHER_MEMBER_DATA'">
+                Mit dieser Emailadresse ist bereits ein anderes Mitglied angemeldet
+            </td>
+            <td class="text-right">
+                <button type="button"
+                        class="btn btn-default"
+                        aria-label="Left Align"
+                        data-toggle="tooltip" data-placement="top" title="Ablehnen. Ablehnungsemail wird verschickt."
+                        data-ng-click="vm.resolveSuspectViaRejection(suspect.id)">
+                    <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
+                </button>
+                <button type="button"
+                        class="btn btn-default"
+                        aria-label="Left Align"
+                        data-toggle="tooltip" data-placement="top" title="Nach passenden Mitgliedern suchen."
+                        data-ng-click="vm.loadEditSuspect(suspect.id)">
+                    <span class="glyphicon glyphicon-triangle-left"
+                          aria-hidden="true"
+                          data-ng-show="!vm.isSuspectInEditMode(suspect)"></span>
+                    <span class="glyphicon glyphicon-triangle-bottom"
+                          aria-hidden="true"
+                          data-ng-show="vm.isSuspectInEditMode(suspect)"></span>
+                </button>
+            </td>
+        </tr>
+        <tr data-ng-show="vm.isSuspectInEditMode(suspect) && vm.memberSearchResultList < 1"
+            class="info">
+            <td colspan="6">Keine automatische Zurordnung m&ouml;glich!</td>
+        </tr>
+        <tr data-ng-show="vm.isSuspectInEditMode(suspect)"
+            data-ng-repeat-start="memberSearchResult in vm.memberSearchResultList"
+            class="info">
+        </tr>
+        <tr data-ng-show="vm.isSuspectInEditMode(suspect)"
+            data-ng-repeat-end
+            class="info">
+            <td class="text-right">
+                <span data-ng-bind="memberSearchResult.member.number" ></span>
+            </td>
+            <td data-ng-bind="memberSearchResult.member.firstname"></td>
+            <td data-ng-bind="memberSearchResult.member.lastname"></td>
+            <td></td>
+            <td class="warning"
+                data-ng-show="memberSearchResult.memberSearchResultCode==='SUBSCRIPTION_WITH_OTHER_MEMBER_DATA_EXISTS'">
+                Zuordnung nicht möglich! Mit dieser Emailadresse ist bereits das vorstehende Mitglied eingetragen.
+            </td>
+            <td data-ng-show="memberSearchResult.memberSearchResultCode==='1_MATCH_BY_NUMBER'">
+                &Uuml;bereinstimmung der Mitgliedsnummer
+            </td>
+            <td data-ng-show="memberSearchResult.memberSearchResultCode==='2_MATCH_BY_FIRSTNAME_AND_LASTNAME'">
+                &Uuml;bereinstimmung von Vor- und Nachnamen
+            </td>
+            <td data-ng-show="memberSearchResult.memberSearchResultCode==='3_MATCH_BY_LASTNAME'">
+                &Uuml;bereinstimmung nur des Nachnamens
+            </td>
+            <td data-ng-show="memberSearchResult.memberSearchResultCode==='4_MATCH_BY_FIRSTNAME'">
+                &Uuml;bereinstimmung nur des Vornamens
+            </td>
+            <td data-ng-show="memberSearchResult.memberSearchResultCode==='ADD_NEW_MEMBER'">
+                Neues Mitglied hinzufügen
+            </td>
+            <td data-ng-show="!vm.isMemberSearchResultSelectedForResolving(memberSearchResult)"
+                class="text-center">
+                <button type="button"
+                        class="btn btn-default"
+                        data-ng-show="memberSearchResult.memberSearchResultCode !=='SUBSCRIPTION_WITH_OTHER_MEMBER_DATA_EXISTS' &&
+                        memberSearchResult.memberSearchResultCode !='ADD_NEW_MEMBER'"
+                        data-ng-click="vm.resolveSuspectWithExistingMember(memberSearchResult)">
+                    Email bei diesem Mitglied eintragen
+                </button>
+                <button type="button"
+                        class="btn btn-default"
+                        data-ng-show="memberSearchResult.memberSearchResultCode !=='SUBSCRIPTION_WITH_OTHER_MEMBER_DATA_EXISTS' &&
+                        memberSearchResult.memberSearchResultCode =='ADD_NEW_MEMBER'"
+                        data-ng-click="vm.resolveSuspectViaCreationOfNewMember(memberSearchResult)">
+                    Email bei neuem Mitglied eintragen
+                </button>
+            </td>
+            <td data-ng-show="vm.isMemberSearchResultSelectedForResolving(memberSearchResult) &&
+                                vm.resolveResult.suspectResolvingResultCode === 'SUBSCRIPTION_ADDED'"
+                class="bg-success">Erfolgreich hinzugef&uuml;gt!
+            </td>
+            <td data-ng-show="vm.isMemberSearchResultSelectedForResolving(memberSearchResult) &&
+                                vm.resolveResult.suspectResolvingResultCode === 'SUBSCRIPTION_ALREADY_EXISTS'"
+                class="danger">
+                Hinzuf&uuml;gen nicht m&ouml;glich!. Diese Email wurde bereits registriert.
+            </td>
+            <td data-ng-show="vm.isMemberSearchResultSelectedForResolving(memberSearchResult) &&
+                                vm.resolveResult.suspectResolvingResultCode === 'SUBSCRIPTION_WITH_OTHER_EMAIL_EXISTS'"
+                class="warning">
+                F&uuml;r <span data-ng-bind="memberSearchResult.member.firstname"></span>
+                <span data-ng-bind="memberSearchResult.member.lastname"></span> wurden bereits eingetragen:
+                <ul>
+                    <li data-ng-repeat="subscription in vm.resolveResult.subscriptions.subscriptionList"
+                        data-ng-bind="subscription.email"></li>
+                </ul>
+                <b><span data-ng-bind="suspect.subscriptionRequest.email"></span></b>
+                zus&auml;tzlich eintragen?
+                <button type="button" class="btn btn-default"
+                        data-ng-click="vm.addAdditionalEmail(memberSearchResult.member, suspect.subscriptionRequest.email)">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </button>
+            </td>
+            <td data-ng-show="vm.isMemberSearchResultSelectedForResolving(memberSearchResult) &&
+                                vm.resolveResult.resolveWithAdditionalSubscriptionResultCode === 'RESOLVING_FAILED'"
+                class="danger">
+                Technischer Fehler beim Aufl&ouml;sen des Suspects!
+            </td>
+            <td data-ng-show="vm.isMemberSearchResultSelectedForResolving(memberSearchResult) &&
+                                vm.resolveResult.resolveWithAdditionalSubscriptionResultCode === 'SUBSCRIPTION_ADDED'"
+                class="bg-success">
+                Erfolgreich hinzugef&uuml;gt!
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
